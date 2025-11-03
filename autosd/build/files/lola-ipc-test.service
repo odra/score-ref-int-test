@@ -1,0 +1,8 @@
+[Unit]
+Requires=bluechi-proxy@agent-qm_lola-ipc-sub.service
+Requires=bluechi-proxy@agent-main_lola-ipc-pub.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/lola-ipc-test
+RemainAfterExit=yes

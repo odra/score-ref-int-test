@@ -1,0 +1,13 @@
+#!/bin/bash
+set -e
+
+# subcriber service setup commands (qm)
+podman exec -it qm systemctl start lola-ipc-sub
+podman exec -it qm systemctl status lola-ipc-sub
+podman exec -it qm journalctl -u lola-ipc-sub.service
+
+# publisher service setup commands (non-qm)
+systemctl start lola-ipc-pub
+
+# check subscriber logs (qm)
+echo $(podman exec -it qm journalctl -u lola-ipc-sub.service)

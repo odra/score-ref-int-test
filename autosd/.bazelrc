@@ -1,0 +1,7 @@
+common --registry=https://raw.githubusercontent.com/eclipse-score/bazel_registry/main/
+common --registry=https://bcr.bazel.build
+
+build:qemu-integration --config=x86_64-linux
+build:qemu-integration --run_under=@score_itf//scripts:run_under_qemu
+build:qemu-integration --test_arg="--qemu"
+build:qemu-integration --test_arg="--os=linux"

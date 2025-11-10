@@ -76,7 +76,7 @@ jobs:
           ./scripts/run_qemu
           sleep 30
           sshcmd 'cat /etc/os-release'
-          sleep 5
+          sshcmd 'systemctl status bluechi-controller'
           sshcmd '/usr/local/bin/lola-ipc-test true'
         working-directory: ./autosd
         env:

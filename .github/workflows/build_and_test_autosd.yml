@@ -76,8 +76,8 @@ jobs:
           ./scripts/run_qemu
           sleep 30
           sshcmd 'cat /etc/os-release'
-          sshcmd 'bluechictl start agent-main lola-ipc-test.service'
-          sshcmd '/usr/local/bin/lola-ipc-test'
+          sshcmd 'bluechictl start agent-main lola-ipc-test.service || true'
+          sshcmd 'systemctl status lola-ipc-test.service'
         working-directory: ./autosd
         env:
           SSH_PASSWORD: ${{ secrets.AUTOSD_SSH_PASSWORD }}

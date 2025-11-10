@@ -76,8 +76,8 @@ jobs:
           ./scripts/run_qemu
           sleep 30
           sshcmd 'cat /etc/os-release'
-          sshcmd 'systemctl status bluechi-controller'
-          sshcmd '/usr/local/bin/lola-ipc-test true'
+          sshcmd 'bluechictl start agent-main lola-ipc-test'
+          sshcmd '/usr/local/bin/lola-ipc-test'
         working-directory: ./autosd
         env:
           SSH_PASSWORD: ${{ secrets.AUTOSD_SSH_PASSWORD }}
